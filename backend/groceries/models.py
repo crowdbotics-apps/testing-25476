@@ -28,6 +28,13 @@ class Run(models.Model):
         auto_now_add=True,
     )
     closed_datetime = models.DateTimeField()
+    list = models.ForeignKey(
+        "groceries.List",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="run_list",
+    )
 
 
 # Create your models here.

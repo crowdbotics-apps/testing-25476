@@ -7,33 +7,61 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Item',
+            name="Item",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=256)),
-                ('description', models.TextField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=256)),
+                ("description", models.TextField()),
             ],
         ),
         migrations.CreateModel(
-            name='Run',
+            name="Run",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('planned_date', models.DateField(auto_now_add=True)),
-                ('closed_datetime', models.DateTimeField()),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("planned_date", models.DateField(auto_now_add=True)),
+                ("closed_datetime", models.DateTimeField()),
             ],
         ),
         migrations.CreateModel(
-            name='List',
+            name="List",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('label', models.CharField(max_length=256)),
-                ('description', models.TextField()),
-                ('items', models.ManyToManyField(related_name='list_items', to='groceries.Item')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("label", models.CharField(max_length=256)),
+                ("description", models.TextField()),
+                (
+                    "items",
+                    models.ManyToManyField(
+                        related_name="list_items", to="groceries.Item"
+                    ),
+                ),
             ],
         ),
     ]
